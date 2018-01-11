@@ -23,6 +23,7 @@ new Vue({
     methods: {
         clear() {
             if (confirm("您確定要清除全部資料嗎？")){
+                Cookies.set("title", null);
                 Cookies.set("storeData", null);
                 Cookies.set("numberFormat", null);
                 location.reload();

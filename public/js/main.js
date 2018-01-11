@@ -11088,6 +11088,7 @@ new __WEBPACK_IMPORTED_MODULE_4_vue___default.a({
     methods: {
         clear() {
             if (confirm("您確定要清除全部資料嗎？")){
+                __WEBPACK_IMPORTED_MODULE_1_js_cookie___default.a.set("title", null);
                 __WEBPACK_IMPORTED_MODULE_1_js_cookie___default.a.set("storeData", null);
                 __WEBPACK_IMPORTED_MODULE_1_js_cookie___default.a.set("numberFormat", null);
                 location.reload();
