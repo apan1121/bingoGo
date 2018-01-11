@@ -98,9 +98,7 @@ export default {
         getRandNumberData: function(){
             let that = this;
             let total = that.numberData.length;
-            console.log(total);
             let randIndex = parseInt( (Math.random() * 10000)  % total);
-            console.log(that.numberData, randIndex);
             return that.numberData[randIndex];
         }
     },
