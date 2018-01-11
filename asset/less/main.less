@@ -1,0 +1,309 @@
+.bingo-box {
+    height: ~"calc(100vh - 15px)";
+    margin: 5px;
+    padding: 20px;
+    background: #ffe401;
+    position: relative;
+
+    .clearBtn{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+
+    }
+
+    .bingo-content {
+        height: ~"calc(100vh - 60px)";
+        .header-box {
+            height: 60px;
+            text-align: center;
+            font-size: 45px;
+            font-weight: 900;
+            color: #CC0000;
+        }
+        .content-box {
+            height: ~"calc(100% - 60px)";
+            >.row {
+                height: 100%;
+                .store-box {
+                    height: ~"calc(100% - 10px)";
+                    margin: 5px;
+                    border: 1px solid #999;
+                    border-radius: 5px;
+                    padding: 10px;
+                    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2caedd+0,7db9e8+100 */
+                    background: rgb(44, 174, 221);
+                    /* Old browsers */
+                    background: -moz-linear-gradient(-45deg, rgba(44, 174, 221, 1) 0%, rgba(125, 185, 232, 1) 100%);
+                    /* FF3.6-15 */
+                    background: -webkit-linear-gradient(-45deg, rgba(44, 174, 221, 1) 0%, rgba(125, 185, 232, 1) 100%);
+                    /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(135deg, rgba(44, 174, 221, 1) 0%, rgba(125, 185, 232, 1) 100%);
+                    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2caedd', endColorstr='#7db9e8', GradientType=1);
+                    /* IE6-9 fallback on horizontal gradient */
+                    .store-scroller {
+                        margin: 10px 0px 10px 3px;
+                        overflow-y: auto;
+                        height: ~"calc(100% - 20px)";
+                        .string-board{
+                            background: #EEE;
+                            padding: 10px;
+                            margin: 2px;
+                            width: 100px;
+                            &.new {
+                                &::after {
+                                    content: "new";
+                                    position: absolute;
+                                    top: 0px;
+                                    right: 10px;
+                                    transform: rotate(30deg);
+                                    text-shadow: 0px 0px 2px #0d00ff;
+                                    color: #bdbcd0;
+                                    font-size: 25px;
+                                }
+                            }
+                        }
+                        .number-board {
+                            background: #EEE;
+                            color: #CC0000;
+                            padding: 2px;
+                            margin: 2px;
+                            border-radius: 5px;
+                            .number {
+                                width: 70px;
+                                height: 60px;
+                                border-bottom: 3px solid #000;
+                                font-family: 'Segment7';
+                                font-weight: 900;
+                                text-align: center;
+                                font-size: 45px;
+                                margin: 10px auto;
+                            }
+                            &.new {
+                                &::after {
+                                    content: "new";
+                                    position: absolute;
+                                    top: 0px;
+                                    right: 10px;
+                                    transform: rotate(30deg);
+                                    text-shadow: 0px 0px 2px #0d00ff;
+                                    color: #bdbcd0;
+                                    font-size: 25px;
+                                }
+                            }
+                        }
+                        .number-ball {
+                            // display: inline-block;
+                            width: 80px;
+                            height: 80px;
+                            margin: 3px auto;
+                            position: relative;
+                            .ball {
+                                display: inline-block;
+                                width: 100%;
+                                height: 100%;
+                                margin: 0;
+                                border-radius: 50%;
+                                position: relative;
+                                background: radial-gradient(circle at 50% 120%, #ff0000, #6b0000 80%, #210000 100%);
+                            }
+                            .ball:before {
+                                content: "";
+                                position: absolute;
+                                background: radial-gradient(circle at 50% 120%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 70%);
+                                border-radius: 50%;
+                                bottom: 2.5%;
+                                left: 5%;
+                                opacity: 0.6;
+                                height: 100%;
+                                width: 90%;
+                                -webkit-filter: blur(5px);
+                                z-index: 2;
+                            }
+
+                            .ball:after {
+                                width: 100%;
+                                height: 100%;
+                                content: "";
+                                position: absolute;
+                                top: 5%;
+                                left: 10%;
+                                border-radius: 50%;
+                                background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8) 14%, rgba(255, 255, 255, 0) 24%);
+                                transform: translateX(-0px) translateY(-0px) skewX(-20deg);
+                                -webkit-filter: blur(10px);
+                            }
+                            .ball .eight,
+                            .ball .number {
+                                width: 45px;
+                                height: 45px;
+                                /* margin: 30%; */
+                                background: white;
+                                border-radius: 50%;
+                                transform: translateX(-30%) translateY(-60%) skewX(20deg) skewY(-20deg);
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                            }
+
+                            .ball .eight:before,
+                            .ball .number:before {
+
+                                content: "" attr(data-val);
+                                display: block;
+                                position: absolute;
+                                text-align: center;
+                                height: 45px;
+                                width: 45px;
+                                left: 50px;
+                                margin-left: -45px;
+                                top: 44px;
+                                margin-top: -45px;
+                                color: #6d0606;
+                                font-family: Arial;
+                                font-size: 40px;
+                                line-height: 45px;
+                            }
+
+                            .ball .shadow {
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                                background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);
+
+                                transform: rotateX(80deg) translateZ(-42px);
+                                /* z-index: -1; */
+                            }
+                        }
+                    }
+                }
+                .game-box {
+                    height: ~"calc(100% - 10px)";
+                    margin: 5px;
+                    border: 1px solid #999;
+                    border-radius: 5px;
+                    overflow: hidden;
+                    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e2e2e2+0,dbdbdb+50,d1d1d1+51,fefefe+100;Grey+Gloss+%231 */
+                    background: rgb(226, 226, 226);
+                    /* Old browsers */
+                    background: -moz-linear-gradient(-45deg, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+                    /* FF3.6-15 */
+                    background: -webkit-linear-gradient(-45deg, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+                    /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(135deg, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+                    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=1);
+                    /* IE6-9 fallback on horizontal gradient */
+                    >.row {
+                        height: 100%;
+                    }
+                    .display-box {
+                        height: 70%;
+                        position: relative;
+                        @media only screen and (min-width: 768px) {
+                            height: 100%;
+                        }
+                        .center-box {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            .ball {
+                                position: relative;
+                                .number {
+                                    font-weight: 900; // font-family: 'DS-Digital', arial;
+                                    font-family: 'Segment7';
+                                    font-size: 20vw;
+                                    background: #EEE;
+                                    color: #CC0000;
+                                    background: #EEE;
+                                    border-radius: 5px;
+                                }
+                                .string{
+                                    font-weight: 900;
+                                    font-size:30px;
+                                    background: #EEE;
+                                    padding: 50px;
+                                }
+                                .shadow {
+                                    content: " ";
+                                    position: absolute;
+                                    width: 0vh;
+                                    height: 0vh;
+                                    background: red;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    z-index: -1;
+                                    border-radius: 50%;
+                                    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f1da36+0,f1da36+34,fefcea+100 */
+                                    background: rgb(241, 218, 54);
+                                    /* Old browsers */
+                                    background: -moz-radial-gradient(center, ellipse cover, rgba(241, 218, 54, 1) 0%, rgba(241, 218, 54, 1) 34%, rgba(254, 252, 234, 1) 100%);
+                                    /* FF3.6-15 */
+                                    background: -webkit-radial-gradient(center, ellipse cover, rgba(241, 218, 54, 1) 0%, rgba(241, 218, 54, 1) 34%, rgba(254, 252, 234, 1) 100%);
+                                    /* Chrome10-25,Safari5.1-6 */
+                                    background: radial-gradient(ellipse at center, rgba(241, 218, 54, 1) 0%, rgba(241, 218, 54, 1) 34%, rgba(254, 252, 234, 1) 100%);
+                                    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1da36', endColorstr='#fefcea', GradientType=1);
+                                    /* IE6-9 fallback on horizontal gradient */
+                                }
+                                .shadow-show {
+                                    animation: shadowAction 0.8s;
+                                    -moz-animation: shadowAction 0.8s;
+                                    /* Firefox */
+                                    -webkit-animation: shadowAction 0.8s;
+                                    /* Safari 和 Chrome */
+                                    -o-animation: shadowAction 0.8s;
+                                    /* Opera */
+                                }
+                            }
+                        }
+                    }
+                    .button-box {
+                        height: 30%;
+                        @media only screen and (min-width: 768px) {
+                            height: 100%;
+                        }
+                        >.row {
+                            height: 100%;
+                            width: 100%;
+                            .button-item {
+                                position: relative;
+                                .center-box {
+                                    position: absolute;
+                                    top: 50%;
+                                    width: 100%;
+                                    transform: translateY(-50%);
+                                    text-align: center;
+                                    .btn {
+                                        font-size: 60px;
+                                        width: 80%;
+                                        // height: ~"calc(100% -30px)";
+                                    }
+                                    .notice{
+                                        height: 30px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes shadowAction {
+    from {
+        width: 0vh;
+        height: 0vh;
+        opacity: 1;
+    }
+    to {
+        width: 80vh;
+        height: 80vh;
+        opacity: 0.2;
+    }
+}
