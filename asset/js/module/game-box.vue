@@ -58,7 +58,13 @@ export default {
             if (that.numberData.length == 0) {
                 alert("已經沒選項了");
                 that.$el.querySelector(".bingoBtn").disabled = true;
+                mixpanel.track(
+                    "bingo! no data",
+                );
             } else {
+                mixpanel.track(
+                    "bingo!",
+                );
                 this.randCount = 0;
                 this.$el.querySelector(".bingoBtn").disabled = true;
                 this.randDisplay();

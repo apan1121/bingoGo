@@ -4,6 +4,11 @@ import storeBoxVue from "./module/store-box";
 import gameBoxVue from "./module/game-box";
 import Vue from 'vue';
 
+
+mixpanel.track(
+    "visit",
+    {"genre": "hip-hop"}
+);
 new Vue({
     el: "#appContainer",
     data: {
@@ -26,10 +31,21 @@ new Vue({
                 Cookies.set("title", null);
                 Cookies.set("storeData", null);
                 Cookies.set("numberFormat", null);
+
+                mixpanel.track(
+                    "clearData",
+                );
                 location.reload();
             }
         },
         saveStoreData() {
+
+            mixpanel.track(
+                "storeChange",
+                {
+                    data: this.storeData,
+                }
+            );
             Cookies.set("storeData", this.storeData);
             this.$el.querySelector(".number-board, .string-board").classList.add("new");
         },
@@ -121,6 +137,16 @@ new Vue({
         let check = 0;
         while(!that.checkData()) {
         }
+
+        mixpanel.track(
+            "setting",
+            {"data": {
+                   "title": this.title,
+                   "numberFormat": this.numberFormat,
+                   "numberFormat": this.numberFormat,
+                }
+            }
+        );
 
         Cookies.set("title", this.title);
         Cookies.set("numberFormat", this.numberFormat);
