@@ -2,6 +2,7 @@ import "../less/main.less";
 import Cookies from "js.cookie";
 import storeBoxVue from "./module/store-box";
 import gameBoxVue from "./module/game-box";
+import checkBoxVue from "./module/check-box";
 import Vue from 'vue';
 
 
@@ -18,14 +19,24 @@ new Vue({
         // numberFormat: "",
         storeData: [],
         numberData: [],
+        checkFlag: false,
     },
     components: {
         storeBoxVue,
-        gameBoxVue
+        gameBoxVue,
+        checkBoxVue,
     },
     watch: {
     },
     methods: {
+        closeCheckAnswerBox() {
+            let that = this;
+            that.checkFlag = false;
+        },
+        openCheckAnswerBox() {
+            let that = this;
+            that.checkFlag = true;
+        },
         clear() {
             if (confirm("您確定要清除全部資料嗎？")){
                 Cookies.set("title", null);

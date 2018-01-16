@@ -11523,8 +11523,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_js_cookie___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_js_cookie__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__module_store_box__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__module_game_box__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__module_check_box__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue__);
+
 
 
 
@@ -11536,7 +11538,7 @@ mixpanel.track(
     "visit",
     {"genre": "hip-hop"}
 );
-new __WEBPACK_IMPORTED_MODULE_4_vue___default.a({
+new __WEBPACK_IMPORTED_MODULE_5_vue___default.a({
     el: "#appContainer",
     data: {
         title: __WEBPACK_IMPORTED_MODULE_1_js_cookie___default.a.get("title"),
@@ -11545,14 +11547,24 @@ new __WEBPACK_IMPORTED_MODULE_4_vue___default.a({
         // numberFormat: "",
         storeData: [],
         numberData: [],
+        checkFlag: false,
     },
     components: {
         storeBoxVue: __WEBPACK_IMPORTED_MODULE_2__module_store_box__["a" /* default */],
-        gameBoxVue: __WEBPACK_IMPORTED_MODULE_3__module_game_box__["a" /* default */]
+        gameBoxVue: __WEBPACK_IMPORTED_MODULE_3__module_game_box__["a" /* default */],
+        checkBoxVue: __WEBPACK_IMPORTED_MODULE_4__module_check_box__["a" /* default */],
     },
     watch: {
     },
     methods: {
+        closeCheckAnswerBox() {
+            let that = this;
+            that.checkFlag = false;
+        },
+        openCheckAnswerBox() {
+            let that = this;
+            that.checkFlag = true;
+        },
         clear() {
             if (confirm("您確定要清除全部資料嗎？")){
                 __WEBPACK_IMPORTED_MODULE_1_js_cookie___default.a.set("title", null);
@@ -11723,7 +11735,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, ".bingo-box {\n  height: calc(100vh - 15px);\n  margin: 5px;\n  padding: 20px;\n  background: #ffe401;\n  position: relative;\n}\n.bingo-box .clearBtn {\n  position: absolute;\n  top: 5px;\n  right: 5px;\n}\n.bingo-box .bingo-content {\n  height: calc(100vh - 60px);\n}\n.bingo-box .bingo-content .header-box {\n  height: 60px;\n  text-align: center;\n  font-size: 45px;\n  font-weight: 900;\n  color: #CC0000;\n}\n.bingo-box .bingo-content .content-box {\n  height: calc(100% - 60px);\n}\n.bingo-box .bingo-content .content-box > .row {\n  height: 100%;\n}\n.bingo-box .bingo-content .content-box > .row .store-box {\n  height: calc(100% - 10px);\n  margin: 5px;\n  border: 1px solid #999;\n  border-radius: 5px;\n  padding: 10px;\n  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2caedd+0,7db9e8+100 */\n  background: #2caedd;\n  /* Old browsers */\n  background: -moz-linear-gradient(-45deg, #2caedd 0%, #7db9e8 100%);\n  /* FF3.6-15 */\n  background: -webkit-linear-gradient(-45deg, #2caedd 0%, #7db9e8 100%);\n  /* Chrome10-25,Safari5.1-6 */\n  background: linear-gradient(135deg, #2caedd 0%, #7db9e8 100%);\n  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2caedd', endColorstr='#7db9e8', GradientType=1);\n  /* IE6-9 fallback on horizontal gradient */\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller {\n  margin: 10px 0px 10px 3px;\n  overflow-y: auto;\n  height: calc(100% - 20px);\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .string-board {\n  background: #EEE;\n  padding: 10px;\n  margin: 2px;\n  width: 100px;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .string-board.new::after {\n  content: \"new\";\n  position: absolute;\n  top: 0px;\n  right: 10px;\n  transform: rotate(30deg);\n  text-shadow: 0px 0px 2px #0d00ff;\n  color: #bdbcd0;\n  font-size: 25px;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-board {\n  background: #EEE;\n  color: #CC0000;\n  padding: 2px;\n  margin: 2px;\n  border-radius: 5px;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-board .number {\n  width: 70px;\n  height: 60px;\n  border-bottom: 3px solid #000;\n  font-family: 'Segment7';\n  font-weight: 900;\n  text-align: center;\n  font-size: 45px;\n  margin: 10px auto;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-board.new::after {\n  content: \"new\";\n  position: absolute;\n  top: 0px;\n  right: 10px;\n  transform: rotate(30deg);\n  text-shadow: 0px 0px 2px #0d00ff;\n  color: #bdbcd0;\n  font-size: 25px;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball {\n  width: 80px;\n  height: 80px;\n  margin: 3px auto;\n  position: relative;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball {\n  display: inline-block;\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  border-radius: 50%;\n  position: relative;\n  background: radial-gradient(circle at 50% 120%, #ff0000, #6b0000 80%, #210000 100%);\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball:before {\n  content: \"\";\n  position: absolute;\n  background: radial-gradient(circle at 50% 120%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 70%);\n  border-radius: 50%;\n  bottom: 2.5%;\n  left: 5%;\n  opacity: 0.6;\n  height: 100%;\n  width: 90%;\n  -webkit-filter: blur(5px);\n  z-index: 2;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball:after {\n  width: 100%;\n  height: 100%;\n  content: \"\";\n  position: absolute;\n  top: 5%;\n  left: 10%;\n  border-radius: 50%;\n  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8) 14%, rgba(255, 255, 255, 0) 24%);\n  transform: translateX(0px) translateY(0px) skewX(-20deg);\n  -webkit-filter: blur(10px);\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball .eight,\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball .number {\n  width: 45px;\n  height: 45px;\n  /* margin: 30%; */\n  background: white;\n  border-radius: 50%;\n  transform: translateX(-30%) translateY(-60%) skewX(20deg) skewY(-20deg);\n  position: absolute;\n  top: 50%;\n  left: 50%;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball .eight:before,\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball .number:before {\n  content: \"\" attr(data-val);\n  display: block;\n  position: absolute;\n  text-align: center;\n  height: 45px;\n  width: 45px;\n  left: 50px;\n  margin-left: -45px;\n  top: 44px;\n  margin-top: -45px;\n  color: #6d0606;\n  font-family: Arial;\n  font-size: 40px;\n  line-height: 45px;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball .shadow {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);\n  transform: rotateX(80deg) translateZ(-42px);\n  /* z-index: -1; */\n}\n.bingo-box .bingo-content .content-box > .row .game-box {\n  height: calc(100% - 10px);\n  margin: 5px;\n  border: 1px solid #999;\n  border-radius: 5px;\n  overflow: hidden;\n  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e2e2e2+0,dbdbdb+50,d1d1d1+51,fefefe+100;Grey+Gloss+%231 */\n  background: #e2e2e2;\n  /* Old browsers */\n  background: -moz-linear-gradient(-45deg, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);\n  /* FF3.6-15 */\n  background: -webkit-linear-gradient(-45deg, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);\n  /* Chrome10-25,Safari5.1-6 */\n  background: linear-gradient(135deg, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);\n  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=1);\n  /* IE6-9 fallback on horizontal gradient */\n}\n.bingo-box .bingo-content .content-box > .row .game-box > .row {\n  height: 100%;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .display-box {\n  height: 70%;\n  position: relative;\n}\n@media only screen and (min-width: 768px) {\n  .bingo-box .bingo-content .content-box > .row .game-box .display-box {\n    height: 100%;\n  }\n}\n.bingo-box .bingo-content .content-box > .row .game-box .display-box .center-box {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.bingo-box .bingo-content .content-box > .row .game-box .display-box .center-box .ball {\n  position: relative;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .display-box .center-box .ball .number {\n  font-weight: 900;\n  font-family: 'Segment7';\n  font-size: 20vw;\n  color: #CC0000;\n  background: #EEE;\n  border-radius: 5px;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .display-box .center-box .ball .string {\n  font-weight: 900;\n  font-size: 30px;\n  background: #EEE;\n  padding: 50px;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .display-box .center-box .ball .shadow {\n  content: \" \";\n  position: absolute;\n  width: 0vh;\n  height: 0vh;\n  background: red;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: -1;\n  border-radius: 50%;\n  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f1da36+0,f1da36+34,fefcea+100 */\n  background: #f1da36;\n  /* Old browsers */\n  background: -moz-radial-gradient(center, ellipse cover, #f1da36 0%, #f1da36 34%, #fefcea 100%);\n  /* FF3.6-15 */\n  background: -webkit-radial-gradient(center, ellipse cover, #f1da36 0%, #f1da36 34%, #fefcea 100%);\n  /* Chrome10-25,Safari5.1-6 */\n  background: radial-gradient(ellipse at center, #f1da36 0%, #f1da36 34%, #fefcea 100%);\n  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1da36', endColorstr='#fefcea', GradientType=1);\n  /* IE6-9 fallback on horizontal gradient */\n}\n.bingo-box .bingo-content .content-box > .row .game-box .display-box .center-box .ball .shadow-show {\n  animation: shadowAction 0.8s;\n  -moz-animation: shadowAction 0.8s;\n  /* Firefox */\n  -webkit-animation: shadowAction 0.8s;\n  /* Safari 和 Chrome */\n  -o-animation: shadowAction 0.8s;\n  /* Opera */\n}\n.bingo-box .bingo-content .content-box > .row .game-box .button-box {\n  height: 30%;\n}\n@media only screen and (min-width: 768px) {\n  .bingo-box .bingo-content .content-box > .row .game-box .button-box {\n    height: 100%;\n  }\n}\n.bingo-box .bingo-content .content-box > .row .game-box .button-box > .row {\n  height: 100%;\n  width: 100%;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .button-box > .row .button-item {\n  position: relative;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .button-box > .row .button-item .center-box {\n  position: absolute;\n  top: 50%;\n  width: 100%;\n  transform: translateY(-50%);\n  text-align: center;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .button-box > .row .button-item .center-box .btn {\n  font-size: 60px;\n  width: 80%;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .button-box > .row .button-item .center-box .notice {\n  height: 30px;\n}\n@keyframes shadowAction {\n  from {\n    width: 0vh;\n    height: 0vh;\n    opacity: 1;\n  }\n  to {\n    width: 80vh;\n    height: 80vh;\n    opacity: 0.2;\n  }\n}\n", ""]);
+exports.push([module.i, ".bingo-box {\n  height: calc(100vh - 15px);\n  margin: 5px;\n  padding: 20px;\n  background: #ffe401;\n  position: relative;\n}\n.bingo-box .toolBox {\n  position: absolute;\n  top: 5px;\n  right: 5px;\n}\n.bingo-box .bingo-content {\n  height: calc(100vh - 60px);\n}\n.bingo-box .bingo-content .header-box {\n  height: 60px;\n  text-align: center;\n  font-size: 45px;\n  font-weight: 900;\n  color: #CC0000;\n}\n.bingo-box .bingo-content .content-box {\n  height: calc(100% - 60px);\n}\n.bingo-box .bingo-content .content-box > .row {\n  height: 100%;\n}\n.bingo-box .bingo-content .content-box > .row .store-box {\n  height: calc(100% - 10px);\n  margin: 5px;\n  border: 1px solid #999;\n  border-radius: 5px;\n  padding: 10px;\n  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2caedd+0,7db9e8+100 */\n  background: #2caedd;\n  /* Old browsers */\n  background: -moz-linear-gradient(-45deg, #2caedd 0%, #7db9e8 100%);\n  /* FF3.6-15 */\n  background: -webkit-linear-gradient(-45deg, #2caedd 0%, #7db9e8 100%);\n  /* Chrome10-25,Safari5.1-6 */\n  background: linear-gradient(135deg, #2caedd 0%, #7db9e8 100%);\n  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2caedd', endColorstr='#7db9e8', GradientType=1);\n  /* IE6-9 fallback on horizontal gradient */\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller {\n  margin: 10px 0px 10px 3px;\n  overflow-y: auto;\n  height: calc(100% - 20px);\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .string-board {\n  background: #EEE;\n  padding: 10px;\n  margin: 2px;\n  width: 100px;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .string-board.new::after {\n  content: \"new\";\n  position: absolute;\n  top: 0px;\n  right: 10px;\n  transform: rotate(30deg);\n  text-shadow: 0px 0px 2px #0d00ff;\n  color: #bdbcd0;\n  font-size: 25px;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-board {\n  background: #EEE;\n  color: #CC0000;\n  padding: 2px;\n  margin: 2px;\n  border-radius: 5px;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-board .number {\n  width: 70px;\n  height: 60px;\n  border-bottom: 3px solid #000;\n  font-family: 'Segment7';\n  font-weight: 900;\n  text-align: center;\n  font-size: 45px;\n  margin: 10px auto;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-board.new::after {\n  content: \"new\";\n  position: absolute;\n  top: 0px;\n  right: 10px;\n  transform: rotate(30deg);\n  text-shadow: 0px 0px 2px #0d00ff;\n  color: #bdbcd0;\n  font-size: 25px;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball {\n  width: 80px;\n  height: 80px;\n  margin: 3px auto;\n  position: relative;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball {\n  display: inline-block;\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  border-radius: 50%;\n  position: relative;\n  background: radial-gradient(circle at 50% 120%, #ff0000, #6b0000 80%, #210000 100%);\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball:before {\n  content: \"\";\n  position: absolute;\n  background: radial-gradient(circle at 50% 120%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 70%);\n  border-radius: 50%;\n  bottom: 2.5%;\n  left: 5%;\n  opacity: 0.6;\n  height: 100%;\n  width: 90%;\n  -webkit-filter: blur(5px);\n  z-index: 2;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball:after {\n  width: 100%;\n  height: 100%;\n  content: \"\";\n  position: absolute;\n  top: 5%;\n  left: 10%;\n  border-radius: 50%;\n  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8) 14%, rgba(255, 255, 255, 0) 24%);\n  transform: translateX(0px) translateY(0px) skewX(-20deg);\n  -webkit-filter: blur(10px);\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball .eight,\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball .number {\n  width: 45px;\n  height: 45px;\n  /* margin: 30%; */\n  background: white;\n  border-radius: 50%;\n  transform: translateX(-30%) translateY(-60%) skewX(20deg) skewY(-20deg);\n  position: absolute;\n  top: 50%;\n  left: 50%;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball .eight:before,\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball .number:before {\n  content: \"\" attr(data-val);\n  display: block;\n  position: absolute;\n  text-align: center;\n  height: 45px;\n  width: 45px;\n  left: 50px;\n  margin-left: -45px;\n  top: 44px;\n  margin-top: -45px;\n  color: #6d0606;\n  font-family: Arial;\n  font-size: 40px;\n  line-height: 45px;\n}\n.bingo-box .bingo-content .content-box > .row .store-box .store-scroller .number-ball .ball .shadow {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);\n  transform: rotateX(80deg) translateZ(-42px);\n  /* z-index: -1; */\n}\n.bingo-box .bingo-content .content-box > .row .game-box {\n  height: calc(100% - 10px);\n  margin: 5px;\n  border: 1px solid #999;\n  border-radius: 5px;\n  overflow: hidden;\n  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e2e2e2+0,dbdbdb+50,d1d1d1+51,fefefe+100;Grey+Gloss+%231 */\n  background: #e2e2e2;\n  /* Old browsers */\n  background: -moz-linear-gradient(-45deg, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);\n  /* FF3.6-15 */\n  background: -webkit-linear-gradient(-45deg, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);\n  /* Chrome10-25,Safari5.1-6 */\n  background: linear-gradient(135deg, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);\n  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=1);\n  /* IE6-9 fallback on horizontal gradient */\n}\n.bingo-box .bingo-content .content-box > .row .game-box > .row {\n  height: 100%;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .display-box {\n  height: 70%;\n  position: relative;\n}\n@media only screen and (min-width: 768px) {\n  .bingo-box .bingo-content .content-box > .row .game-box .display-box {\n    height: 100%;\n  }\n}\n.bingo-box .bingo-content .content-box > .row .game-box .display-box .center-box {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.bingo-box .bingo-content .content-box > .row .game-box .display-box .center-box .ball {\n  position: relative;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .display-box .center-box .ball .number {\n  font-weight: 900;\n  font-family: 'Segment7';\n  font-size: 20vw;\n  color: #CC0000;\n  background: #EEE;\n  border-radius: 5px;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .display-box .center-box .ball .string {\n  font-weight: 900;\n  font-size: 30px;\n  background: #EEE;\n  padding: 50px;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .display-box .center-box .ball .shadow {\n  content: \" \";\n  position: absolute;\n  width: 0vh;\n  height: 0vh;\n  background: red;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: -1;\n  border-radius: 50%;\n  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f1da36+0,f1da36+34,fefcea+100 */\n  background: #f1da36;\n  /* Old browsers */\n  background: -moz-radial-gradient(center, ellipse cover, #f1da36 0%, #f1da36 34%, #fefcea 100%);\n  /* FF3.6-15 */\n  background: -webkit-radial-gradient(center, ellipse cover, #f1da36 0%, #f1da36 34%, #fefcea 100%);\n  /* Chrome10-25,Safari5.1-6 */\n  background: radial-gradient(ellipse at center, #f1da36 0%, #f1da36 34%, #fefcea 100%);\n  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1da36', endColorstr='#fefcea', GradientType=1);\n  /* IE6-9 fallback on horizontal gradient */\n}\n.bingo-box .bingo-content .content-box > .row .game-box .display-box .center-box .ball .shadow-show {\n  animation: shadowAction 0.8s;\n  -moz-animation: shadowAction 0.8s;\n  /* Firefox */\n  -webkit-animation: shadowAction 0.8s;\n  /* Safari 和 Chrome */\n  -o-animation: shadowAction 0.8s;\n  /* Opera */\n}\n.bingo-box .bingo-content .content-box > .row .game-box .button-box {\n  height: 30%;\n}\n@media only screen and (min-width: 768px) {\n  .bingo-box .bingo-content .content-box > .row .game-box .button-box {\n    height: 100%;\n  }\n}\n.bingo-box .bingo-content .content-box > .row .game-box .button-box > .row {\n  height: 100%;\n  width: 100%;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .button-box > .row .button-item {\n  position: relative;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .button-box > .row .button-item .center-box {\n  position: absolute;\n  top: 50%;\n  width: 100%;\n  transform: translateY(-50%);\n  text-align: center;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .button-box > .row .button-item .center-box .btn {\n  font-size: 60px;\n  width: 80%;\n}\n.bingo-box .bingo-content .content-box > .row .game-box .button-box > .row .button-item .center-box .notice {\n  height: 30px;\n}\n.checkAnswerBoxOverlay {\n  position: fixed;\n  z-index: 1000;\n  top: 0px;\n  left: 0px;\n  background: rgba(0, 0, 0, 0.3);\n  width: 100%;\n  height: 100%;\n}\n.checkAnswerBox {\n  position: fixed;\n  z-index: 1100;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  background: #FFF;\n}\n.checkAnswerBox .checkAnswerBox-wrapper {\n  position: relative;\n  border: 1px solid #000;\n  max-width: 80vw;\n  max-height: 80vh;\n  overflow: auto;\n}\n.checkAnswerBox .checkAnswerBox-wrapper .closeBtn {\n  position: absolute;\n  right: 0px;\n  top: 0px;\n  width: 25px;\n  height: 25px;\n  border-radius: 50%;\n  background: #FFF;\n  border: 1px solid #000;\n  cursor: pointer;\n  text-align: center;\n}\n.checkAnswerBox .checkAnswerBox-wrapper .checkAnswerBox-content {\n  padding: 20px;\n}\n.checkAnswerBox .checkAnswerBox-wrapper .checkAnswerBox-content .checkAnswerList {\n  margin-top: 10px;\n}\n.checkAnswerBox .checkAnswerBox-wrapper .checkAnswerBox-content .checkAnswerList .answerbox {\n  border: 1px solid #444;\n  background: #ccc;\n  border-radius: 3px;\n  position: relative;\n}\n.checkAnswerBox .checkAnswerBox-wrapper .checkAnswerBox-content .checkAnswerList .answerbox .answerbox-string {\n  text-align: center;\n  padding: 5px;\n}\n.checkAnswerBox .checkAnswerBox-wrapper .checkAnswerBox-content .checkAnswerList .answerbox .answer {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  opacity: 1;\n}\n.checkAnswerBox .checkAnswerBox-wrapper .checkAnswerBox-content .checkAnswerList .answerbox .answer .yes,\n.checkAnswerBox .checkAnswerBox-wrapper .checkAnswerBox-content .checkAnswerList .answerbox .answer .no {\n  display: none;\n}\n.checkAnswerBox .checkAnswerBox-wrapper .checkAnswerBox-content .checkAnswerList .answerbox[answer='1'] {\n  background: rgba(0, 200, 0, 0.1);\n}\n.checkAnswerBox .checkAnswerBox-wrapper .checkAnswerBox-content .checkAnswerList .answerbox[answer='1'] .answer {\n  color: #006400;\n}\n.checkAnswerBox .checkAnswerBox-wrapper .checkAnswerBox-content .checkAnswerList .answerbox[answer='1'] .answer .yes {\n  display: block;\n}\n.checkAnswerBox .checkAnswerBox-wrapper .checkAnswerBox-content .checkAnswerList .answerbox[answer='-1'] {\n  background: rgba(200, 0, 0, 0.1);\n}\n.checkAnswerBox .checkAnswerBox-wrapper .checkAnswerBox-content .checkAnswerList .answerbox[answer='-1'] .answer {\n  color: #640000;\n}\n.checkAnswerBox .checkAnswerBox-wrapper .checkAnswerBox-content .checkAnswerList .answerbox[answer='-1'] .answer .no {\n  display: block;\n}\n.winner {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 1200;\n  width: 0;\n  transition: all 2s;\n}\n.winner img {\n  width: 100%;\n  height: 100%;\n}\n.winner.show {\n  width: 30vw;\n}\n@keyframes shadowAction {\n  from {\n    width: 0vh;\n    height: 0vh;\n    opacity: 1;\n  }\n  to {\n    width: 80vh;\n    height: 80vh;\n    opacity: 0.2;\n  }\n}\n", ""]);
 
 // exports
 
@@ -13048,6 +13060,401 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-acdd840c", esExports)
   }
 }
+
+/***/ }),
+/* 25 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_selector_type_script_index_0_check_box_vue__ = __webpack_require__(27);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2087836c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_check_box_vue__ = __webpack_require__(26);
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_selector_type_script_index_0_check_box_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2087836c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_check_box_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "asset/js/module/check-box.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2087836c", Component.options)
+  } else {
+    hotAPI.reload("data-v-2087836c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+/* 26 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.checkFlag
+    ? _c("div", [
+        _c("div", { staticClass: "checkAnswerBoxOverlay" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "checkAnswerBox" }, [
+          _c("div", { staticClass: "checkAnswerBox-wrapper" }, [
+            _c(
+              "div",
+              {
+                staticClass: "closeBtn",
+                on: { click: _vm.closeCheckAnswerBox }
+              },
+              [
+                _c("i", {
+                  staticClass: "fa fa-times",
+                  attrs: { "aria-hidden": "true" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "checkAnswerBox-content" }, [
+              _c("h4", [_vm._v("比對手上的項目，祝您中獎")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.AnswerString,
+                      expression: "AnswerString"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", placeholder: "輸入您需要比對的項目" },
+                  domProps: { value: _vm.AnswerString },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.AnswerString = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group-append" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn  btn-primary",
+                      attrs: { type: "button" },
+                      on: { click: _vm.checkAnswer }
+                    },
+                    [
+                      _c("i", {
+                        staticClass: "fa fa-search",
+                        attrs: { "aria-hidden": "true" }
+                      })
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "checkAnswerList" },
+                [
+                  _vm.AnswerCheck.length > 0
+                    ? [
+                        _c(
+                          "div",
+                          { staticClass: "row" },
+                          [
+                            _vm._l(_vm.AnswerCheck, function(item, key) {
+                              return [
+                                _c("div", { staticClass: "col" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "answerbox",
+                                      attrs: { answer: item.check }
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "answerbox-string" },
+                                        [
+                                          _vm._v(
+                                            "\n                                            " +
+                                              _vm._s(item.key) +
+                                              "\n                                        "
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _vm._m(0, true)
+                                    ]
+                                  )
+                                ])
+                              ]
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    : _vm._e()
+                ],
+                2
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm.isWinner
+          ? _c("div", { staticClass: "winner" }, [
+              _c("img", {
+                attrs: { src: _vm.winnerSVG },
+                on: { click: _vm.closeWinner }
+              })
+            ])
+          : _vm._e()
+      ])
+    : _vm._e()
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "answer" }, [
+      _c("i", {
+        staticClass: "fa fa-check yes",
+        attrs: { "aria-hidden": "true" }
+      }),
+      _vm._v(" "),
+      _c("i", {
+        staticClass: "fa fa-times no",
+        attrs: { "aria-hidden": "true" }
+      })
+    ])
+  }
+]
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2087836c", esExports)
+  }
+}
+
+/***/ }),
+/* 27 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+const audio = {
+    good: new Audio("./public/mp3/good.mp3"),
+    bad: new Audio("./public/mp3/bad.mp3"),
+    winner: new Audio("./public/mp3/winner.mp3"),
+}
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    data: function(){
+        return {
+            AnswerString: "",
+            AnswerCheck: [],
+            checkLoopIndex: 0,
+
+            winnerSVG: "./public/img/winner.svg",
+            isWinner: false,
+        }
+    },
+
+    methods: {
+        closeWinner() {
+            this.isWinner = false;
+        },
+        checkAnswer() {
+            let that = this;
+            that.AnswerCheck = [];
+            that.isWinner = false;
+            if (that.AnswerString == "") {
+                return false;
+            }
+            let value = that.AnswerString.split(",");
+            value.forEach(function(val){
+                that.AnswerCheck.push({
+                    key: val,
+                    check: 0,
+                });
+            });
+
+            if (that.AnswerCheck.length > 0) {
+                that.checkLoopIndex = 0;
+                that.checkLoop(this);
+            }
+        },
+        checkLoop() {
+            var that = this;
+            let checkKey = that.AnswerCheck[that.checkLoopIndex].key;
+
+            that.AnswerCheck[that.checkLoopIndex].check = (that.storeData.indexOf(checkKey) != -1)?"1":"-1";
+            if (that.AnswerCheck[that.checkLoopIndex].check == 1) {
+                audio.good.play();
+            } else {
+                audio.bad.play();
+            }
+
+            that.$set(that.AnswerCheck, that.checkLoopIndex, that.AnswerCheck[that.checkLoopIndex]);
+
+            let nextIndex = that.checkLoopIndex + 1;
+            if (["",null, undefined].indexOf(that.AnswerCheck[nextIndex]) == -1) {
+                that.checkLoopIndex = nextIndex;
+                setTimeout(function(){ this.checkLoop() }.bind(this), 500);
+            } else {
+                that.summery();
+            }
+        },
+        summery() {
+            let that = this;
+            let winner = true;
+            for (var i in that.AnswerCheck) {
+                if (that.AnswerCheck[i].check == -1) {
+                    winner = false;
+                }
+            }
+
+            if (winner) {
+                audio.winner.play();
+                that.isWinner = true;
+                that.showWinner();
+            }
+        },
+        showWinner() {
+            let that = this;
+            setTimeout(function(){
+                document.querySelector(".winner").classList.add("show");
+                document.querySelector(".winner").style.opacity = "0";
+                setTimeout(function(){
+                    that.isWinner = false;
+                },10000);
+            },500);
+        },
+        closeCheckAnswerBox() {
+            let that = this;
+            that.$emit("close-check-answer-box");
+        }
+    },
+    computed: {
+
+    },
+    watch: {
+        AnswerCheck: function(newParam, oldParam){
+            // console.log(newParam, oldParam);
+        },
+        checkFlag: function(newParam, oldParam){
+            if (newParam === false) {
+                this.AnswerString = "";
+                this.AnswerCheck = [];
+            }
+        }
+    },
+    beforeUpdate() {
+        let that = this;
+
+    },
+    mounted(){
+        let that = this;
+
+        // console.log(this.storeData, this.numberData);
+    },
+    props: ['storeData','checkFlag'],
+});
+
 
 /***/ })
 /******/ ]);
